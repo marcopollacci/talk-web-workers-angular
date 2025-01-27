@@ -1,0 +1,61 @@
+@import 'core/props.scss';
+@import 'core/deck.scss';
+@import 'core/nav.scss';
+@import 'core/toolbar.scss';
+@import 'core/progress.scss';
+
+:root {
+  font-family:
+    Graphik Regular,
+    system-ui,
+    sans-serif;
+  --rando0: 76px;
+  --rando1: 65px;
+  --rando2: 436px;
+  --rando3: 52px;
+  --rando4: 715px;
+  --rando5: 277px;
+  --rando6: 260px;
+  --rando7: 287px;
+  --rando8: 706px;
+  --rando9: 772px;
+}
+
+:fullscreen {
+  .presentation-toolbar,
+  .presentation-nav {
+    display: none;
+  }
+}
+
+body {
+  margin: 0;
+}
+
+em {
+  color: var(--brand-color);
+}
+
+.gdgLogo {
+  position: absolute;
+  z-index: 100;
+  max-width: 80vw;
+  top: 0.5vw;
+  left: 0.5vw;
+}
+
+.presentation-toolbar,
+.presentation-nav {
+  button {
+    border: none;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+    margin: 0.25em;
+    cursor: pointer;
+    width: 1em;
+    height: 1em;
+    font-size: 3rem;
+    color: var(--controls-color);
+  }
+}

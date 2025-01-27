@@ -1,0 +1,29 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "workbench.editor.tabSizing": "shrink",
+  "git.suggestSmartCommit": false,
+  "git.alwaysShowStagedChangesResourceGroup": true,
+  "git.smartCommitChanges": "tracked",
+  "gitlens.views.remotes.branches.layout": "tree",
+  "eslint.lintTask.enable": true,
+  "conventionalCommits.scopes": [
+    "main"
+  ],
+  "files.eol": "\n",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css, scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

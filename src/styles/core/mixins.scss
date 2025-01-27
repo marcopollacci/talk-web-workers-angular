@@ -1,0 +1,10 @@
+@mixin gradientText($color1, $color2) {
+  background: linear-gradient(90deg, $color1, $color2);
+  font-family: 'Graphik Semibold', serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@mixin smallText {
+  font-size: 0.5em;
+}

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Angular Signal</title>
+    <base href=".." />
+    <link href="favicon.svg" rel="shortcut icon" type="image/svg+xml" />
+    <link href="css/prism-one-light.css" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/print.css" media="print" rel="stylesheet" />
+    <link href="css/presentation.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!--<img alt="gdglogo" class="gdgLogo" src="img/logo_dark_QmPdj9K.svg" />-->
+    <p-deck> slide:cover-something slide:cover slide:thanks </p-deck>
+    <div aria-valuemax="100" aria-valuemin="0" aria-valuenow="0" class="presentation-progress" role="progressbar" title="Presentation progress"></div>
+    <div class="presentation-toolbar" role="toolbar">
+      <button aria-label="Toggle speaker mode (Alt-M)" class="toggle-mode" title="Toggle speaker mode" type="button">
+        <svg viewBox="0 0 1 1">
+          <path d="M.05 .5h.6v-.45h-.6v.9h.6v-.45M.75 .05h.25M.75 .2h.25M.75 .35h.25" fill="none" stroke="currentColor" stroke-width="0.1" />
+        </svg>
+      </button>
+      <button aria-label="Toggle fullscreen mode" class="fullscreen" title="Toggle fullscreen mode" type="button">
+        <svg viewBox="0 0 1 1">
+          <g fill="none" stroke="currentColor" stroke-width="0.1">
+            <path d="M.05 .3v-.25h.25M.7 .05h.25v.25M.95 .7v.25h-.25M.3 .95h-.25v-.25" />
+            <path d="M.05 .3h.25v-.25M.7 .05v.25h.25M.95 .7h-.25v.25M.3 .95v-.25h-.25" />
+          </g>
+        </svg>
+      </button>
+    </div>
+    <nav class="presentation-nav">
+      <button aria-label="Go backward" class="previous" title="Go backward" type="button"></button>
+      <button aria-label="Go forward" class="next" title="Go forward" type="button"></button>
+    </nav>
+    <script src="js/main.js" type="module"></script>
+    <script src="js/presentation.js" type="module"></script>
+    <script src="js/deck.js" type="module"></script>
+    <script defer src="vendor/prismjs/prism.js"></script>
+    <script defer src="vendor/prismjs/components/prism-typescript.js"></script>
+    <script defer src="vendor/prismjs/components/prism-scss.js"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+p-deck {
+  &:not([mode]),
+  &[mode='presentation'] {
+    transition: background-color var(--sliding-duration) var(--sliding-duration);
+    background-color: var(--current-slide-bg, transparent);
+  }
+
+  &[mode='speaker'] {
+    p-fragment {
+      opacity: 0.5;
+      &[aria-hidden='false'] {
+        opacity: 1;
+      }
+    }
+    p-slide[next] {
+      transform: scale(calc(1 - var(--speaker-next-scale)));
+      top: calc(var(--speaker-next-scale) * -50%);
+      left: calc(var(--speaker-next-scale) * 50% - 50%);
+      opacity: 0.5;
+    }
+    p-slide[active] {
+      transform: scale(var(--speaker-next-scale));
+      top: calc(50% - var(--speaker-next-scale) * 50%);
+      left: calc(var(--speaker-next-scale) * 50% - 50%);
+      opacity: 1;
+    }
+  }
+}
+p-slide[debug],
+p-slide.debug {
+  box-shadow:
+    inset 0 0 0 1em red,
+    inset 0 0 0 1.1em green;
+}
+
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+  ul:has(p-fragment) {
+    --safary-ul-fragment-direction: column;
+    display: flex;
+    flex-direction: var(--safary-ul-fragment-direction);
+  }
+}
