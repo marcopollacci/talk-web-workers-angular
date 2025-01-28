@@ -60,3 +60,9 @@ em {
     color: var(--controls-color);
   }
 }
+
+.image-fullscreen {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
