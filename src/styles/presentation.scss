@@ -576,6 +576,17 @@ pre[data-label-file]::after {
   gap: 1em;
 }
 
+.heading-with-emoji {
+  --justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: var(--justify-content);
+  gap: 0.3em;
+  span {
+    @extend .text-sub-section;
+  }
+}
+
 @keyframes box {
   0% {
     inset-inline-start: var(--rando0);

@@ -34,6 +34,37 @@
   <p-notes>
     Thread Management in Web Browsers Web browsers are complex applications that handle a variety of tasks simultaneously, such as rendering web pages, executing JavaScript,
     managing network requests, and handling user input. To manage these tasks efficiently, modern web browsers use a combination of single-threaded and multi-threaded
-    architectures.
+    architectures. The list is not exhaustive, but it highlights the importance of thread management in web browsers.
   </p-notes>
+</p-slide>
+<p-slide>
+  <h3 class="center heading-with-emoji"><span>Single-Threaded</span> 🛣</h3>
+  <p-fragment>📍 JavaScript Execution</p-fragment>
+  <p-fragment>📍 Event Handling</p-fragment>
+  <p-fragment>📍 Rendering</p-fragment>
+  <p-fragment>📍 DOM Manipulation</p-fragment>
+  <p-notes> All the above tasks can be performed in main thread. </p-notes>
+</p-slide>
+<p-slide>
+  <h3 class="center heading-with-emoji"><span>Multi-Threaded</span> 🛣 🛣</h3>
+  <p-fragment>🚀 Networking</p-fragment>
+  <p-fragment>🚀 GPU Acceleration</p-fragment>
+  <p-fragment>🚀 HTML5 APIs (WebRTC, Web Audio API, File API)</p-fragment>
+  <p-fragment>🚀 <b>Web worker</b></p-fragment>
+  <p-notes>
+    <ul>
+      <li>Networking: Internally, these use multiple threads for handling network I/O.</li>
+      <li>GPU: Rendering and compositing tasks are often offloaded to the GPU, which uses multiple threads internally</li>
+      <li>HTML5 APIs: APIs like WebRTC, Web Audio API, and File API often use multiple threads internally</li>
+      <li>Web worker: Web workers can also use multiple threads internally</li>
+    </ul>
+  </p-notes>
+</p-slide>
+<p-slide>
+  <h3 style="--justify-content: flex-start" class="heading-with-emoji">✔️ <span>Summary</span></h3>
+  <p-fragment style="margin-block-end: 2rem"><p class="mid-dimension">Web browsers employ a hybrid approach to thread management.</p></p-fragment>
+  <p-fragment class="mid-dimension">
+    <p style="margin-block-end: 1rem">📣 <b>Single-Threaded</b>: JavaScript execution on the main thread, managed by an event loop.</p>
+    <p>📣 <b>Multi-Threaded</b>: Use of Web Workers for background tasks, and multi-threaded browser engine components for rendering, networking, and GPU acceleration.</p>
+  </p-fragment>
 </p-slide>
