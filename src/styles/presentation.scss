@@ -244,6 +244,13 @@ pre {
   }
 }
 
+.cover-colored {
+  @extend .cover;
+  * {
+    @include mixins.gradientText(#1d99fd, #ff00f7);
+  }
+}
+
 .cover-subSection {
   @extend .cover;
 
