@@ -1,6 +1,8 @@
 # Web Workers su Angular: Multithreading senza mal di testa
 
-Slides for what [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day-2025).
+Slides for talk about Web Workers in Angular
+
+Originally conceived for [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day-2025) (in italian), Milan, 2025-03-31
 
 Built on top of [P-Slides](https://github.com/MaxArt2501/p-slides)!
 

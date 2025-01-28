@@ -57,6 +57,7 @@
   --brand-color-ant: #f60;
   --sketchy-arrow-width: 0.1em;
   --sketchy-arrow-tip-size: 20;
+  --bolognajs-color-logo: #f3df49;
 }
 
 p-deck::after {
@@ -107,7 +108,6 @@ p-fragment.landing {
 }
 
 .slide-quote {
-  display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   flex-wrap: nowrap;
@@ -202,24 +202,22 @@ pre {
 
 .bottom-fist-page {
   left: 50%;
-  display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   position: absolute;
   bottom: 0;
   font-size: 0.4em;
   transform: translate(-50%, -50%);
-  span:first-of-type {
-    margin-bottom: 0.3em;
-  }
+  color: rgb(93, 93, 93);
 }
 
 .cover {
   h1 {
-    @include mixins.gradientText(#000, #fafafa);
+    @include mixins.gradientText(#1d99fd, #ff00f7);
     font-size: 1.3em;
     text-align: center;
     margin-top: 0;
+    margin-block-end: 1rem;
   }
 
   a {
@@ -250,7 +248,7 @@ pre {
   @extend .cover;
 
   h1 {
-    @include mixins.gradientText(#fafafa, #000000);
+    @include mixins.gradientText(#1d99fd, #ff00f7);
     font-size: 0.9em;
   }
 }
@@ -258,8 +256,13 @@ pre {
 .gradient-sub-section {
   --starting-point-gradient: #fafafa;
   h5 {
-    @include mixins.gradientText(var(--starting-point-gradient), #000000);
+    @include mixins.gradientText(var(--starting-point-gradient), #ff00f7);
   }
+}
+
+.internal-flex {
+  display: flex;
+  align-items: center;
 }
 
 .my-presentation {
@@ -464,11 +467,14 @@ a {
 }
 
 .text-cover {
-  @include mixins.gradientText(#000, #a0a0a0);
+  @include mixins.gradientText(#1d99fd, #ff00f7);
 }
 
 .text-sub-section {
-  color: #484848;
+  background: linear-gradient(90deg, #ff00d8, #ff542f);
+  font-family: 'Graphik Semibold', serif;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
 }
 
 .special-file {
@@ -484,7 +490,7 @@ p-slide {
     display: none;
     position: absolute;
     filter: brightness(1.5);
-    opacity: 0.9;
+    opacity: 0.95;
     width: 8em;
     height: 8em;
     animation: box 7s ease infinite alternate;
@@ -548,6 +554,26 @@ pre[data-label-file]::after {
   li {
     margin-bottom: 0.6em;
   }
+}
+
+.fragment-animation-from-bottom[aria-hidden='false'] {
+  animation: from-bottom 5s;
+}
+
+.bolognajs-logo {
+  img {
+    width: 4em;
+    height: 4em;
+    animation: shadow-logo 3s infinite;
+  }
+  margin: 0 auto;
+}
+
+.toSignalImg {
+  position: absolute;
+  width: 13em;
+  inset-block-start: 8.8em;
+  inset-inline-start: 3em;
 }
 
 @keyframes box {
