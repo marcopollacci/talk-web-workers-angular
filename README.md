@@ -1,4 +1,4 @@
-# Web Workers su Angular: Multithreading senza mal di testa
+# Web Workers in Angular: Multithreading without headache
 
 Slides for talk about Web Workers in Angular
 
