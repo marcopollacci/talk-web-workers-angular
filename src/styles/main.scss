@@ -1,8 +1,8 @@
-@import 'core/props.scss';
-@import 'core/deck.scss';
-@import 'core/nav.scss';
-@import 'core/toolbar.scss';
-@import 'core/progress.scss';
+@use 'core/props.scss';
+@use 'core/deck.scss';
+@use 'core/nav.scss';
+@use 'core/toolbar.scss';
+@use 'core/progress.scss';
 
 :root {
   font-family:

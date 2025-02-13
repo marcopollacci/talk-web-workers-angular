@@ -1,7 +1,7 @@
 @use 'core/mixins' as mixins;
-@import 'core/typography.scss';
-@import 'core/utility.scss';
-@import 'core/scaffold.scss';
+@use 'core/typography.scss';
+@use 'core/utility.scss';
+@use 'core/scaffold.scss';
 
 @property --sketchy-arrow-width {
   syntax: '<length>';
