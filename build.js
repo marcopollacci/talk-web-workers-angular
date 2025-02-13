@@ -28,12 +28,12 @@ const safeCopy = (source, dest) => {
   copyFileSync(source, dest);
 };
 
-export const buildSlides = () => {
+export const buildSlides = (isBuildMode = true) => {
   const files = sync('src/presentations/**/*.html');
   const commonPath = getCommonPath(files);
   for (const filename of files) {
     const html = readFileSync(filename, 'utf-8');
-    const parsed = html.replace(/\bslide:(.+?)\s/g, (m, source) => {
+    let parsed = html.replace(/\bslide:(.+?)\s/g, (m, source) => {
       try {
         const slide = readFileSync(`src/slides/${source}.html`, 'utf-8');
         return `<!--slide:${source}-->${slide.trim()}<!--/slide:${source}-->\n`;
@@ -42,6 +42,11 @@ export const buildSlides = () => {
         return m;
       }
     });
+    if (isBuildMode) {
+      const regex =
+        /<button aria-label="Toggle speaker mode \(Alt-M\)" class="toggle-mode" title="Toggle speaker mode" type="button">\s*<svg viewBox="0 0 1 1">\s*<path d="M\.05 \.5h\.6v-\.45h-\.6v\.9h\.6v-\.45M\.75 \.05h\.25M\.75 \.2h\.25M\.75 \.35h\.25" fill="none" stroke="currentColor" stroke-width="0\.1" \/>\s*<\/svg>\s*<\/button>/g;
+      parsed = parsed.replace(regex, '');
+    }
     safeWrite(join('public', relative(commonPath, filename)), parsed);
   }
 };
@@ -88,14 +93,9 @@ export const copyVendors = () => {
 
 export const clean = async () => rimraf('public');
 
-// const modulePath = fileURLToPath(import.meta.url);
-// const scriptPath = process.argv[1];
-
-// if (modulePath === scriptPath) {
 clean();
 buildSlides();
 buildStyle();
 buildJavaScript();
 copyAssets();
 copyVendors();
-// }

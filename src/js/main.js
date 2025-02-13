@@ -47,7 +47,7 @@ function toggleNavButtons(event) {
     view with a smooth animation, ensuring that the element is centered within its container and is as
     close to the viewport as possible. */
     if (hasTargetAttribute) {
-      event.detail.fragment.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" });
+      event.detail.fragment.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'nearest' });
     }
   }
   navButtons.previous.disabled = deck.atStart;
@@ -106,7 +106,9 @@ function toggleDeckMode() {
   changeHash(deck.currentSlide);
 }
 const toggleModeButton = document.querySelector('.toggle-mode');
-toggleModeButton.addEventListener('click', toggleDeckMode);
+if (toggleModeButton) {
+  toggleModeButton.addEventListener('click', toggleDeckMode);
+}
 document.addEventListener('keydown', keyEvent => {
   if (keyEvent.key.toLowerCase() === 'm' && keyEvent.ctrlKey) {
     toggleDeckMode();
