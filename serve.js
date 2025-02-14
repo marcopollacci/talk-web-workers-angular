@@ -7,8 +7,11 @@ const server = bSync.create();
 const baseDir = './public';
 const cssDir = `${baseDir}/css`;
 
+const startPath = process.argv[2] || '';
+
 server.init({
   ghostMode: false,
+  startPath,
   server: { baseDir }
 });
 

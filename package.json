@@ -6,9 +6,8 @@
   "scripts": {
     "build": "node build.js",
     "clean": "rimraf public",
-    "start": "node serve.js",
-    "prettier": "prettier --write \"src/**/*.{html,scss,js}\"",
-    "gh-pages": "gh-pages -d public"
+    "start:web-day-2025": "node serve.js web-day-2025",
+    "prettier": "prettier --write \"src/**/*.{html,scss,js}\""
   },
   "keywords": [
     "presentation",
@@ -26,7 +25,6 @@
   },
   "devDependencies": {
     "browser-sync": "^3.0.3",
-    "gh-pages": "^6.3.0",
     "glob": "^11.0.1",
     "prettier": "^3.5.0",
     "rimraf": "^6.0.1",
