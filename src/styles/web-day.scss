@@ -1,3 +1,13 @@
+p-slide,
+p-deck {
+  background: url('/img/webday/background.png');
+}
+
+p-slide {
+  background-size: cover;
+  color: #ffffff;
+}
+
 .grid-two-columns {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

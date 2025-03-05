@@ -462,7 +462,6 @@ a {
   th {
     text-align: center;
     padding: 0.5em;
-
     &:not(:first-child) {
       border-inline-start: 0.1em solid;
     }
@@ -482,6 +481,7 @@ a {
 .text-sub-section {
   background: linear-gradient(90deg, #ff00d8, #ff542f);
   font-family: 'Graphik Semibold', serif;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: rgba(0, 0, 0, 0);
 }
