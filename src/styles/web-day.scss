@@ -1,10 +1,16 @@
-p-slide,
+@use 'core/mixins' as mixins;
+
 p-deck {
-  background: url('/img/webday/background.png');
+  background: linear-gradient(104deg, #03356e, #010f33);
 }
 
 p-slide {
+  background: url('/img/webday/background.png');
   background-size: cover;
+  color: #ffffff;
+}
+
+.blockquote cite a {
   color: #ffffff;
 }
 
