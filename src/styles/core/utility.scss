@@ -132,6 +132,10 @@ p-deck:not([mode='speaker']) .full-media-no-padding {
   padding-top: 1.5em;
 }
 
+.flex {
+  display: flex;
+}
+
 .two-columns-divided-vertically {
   @extend .two-columns;
   flex-direction: row;
