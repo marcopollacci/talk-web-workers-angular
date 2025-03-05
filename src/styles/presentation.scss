@@ -479,10 +479,6 @@ a {
   }
 }
 
-.text-cover {
-  @include mixins.gradientText(#1d99fd, #ff00f7);
-}
-
 .text-sub-section {
   background: linear-gradient(90deg, #ff00d8, #ff542f);
   font-family: 'Graphik Semibold', serif;
