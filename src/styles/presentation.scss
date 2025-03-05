@@ -211,9 +211,17 @@ pre {
   color: rgb(93, 93, 93);
 }
 
+.main-gradient {
+  @include mixins.gradientText(#1d99fd, #ff00f7);
+}
+
+.main-sub-gradient {
+  @include mixins.gradientText(#ff00d8, #ff542f);
+}
+
 .cover {
   h1 {
-    @include mixins.gradientText(#1d99fd, #ff00f7);
+    @extend .main-gradient;
     font-size: 1.3em;
     text-align: center;
     margin-top: 0;
@@ -247,7 +255,7 @@ pre {
 .cover-colored {
   @extend .cover;
   * {
-    @include mixins.gradientText(#1d99fd, #ff00f7);
+    @extend .main-gradient;
   }
 }
 
@@ -255,15 +263,13 @@ pre {
   @extend .cover;
 
   h1 {
-    @include mixins.gradientText(#1d99fd, #ff00f7);
     font-size: 0.9em;
   }
 }
 
 .gradient-sub-section {
-  --starting-point-gradient: #fafafa;
   h5 {
-    @include mixins.gradientText(var(--starting-point-gradient), #ff00f7);
+    @extend .main-sub-gradient;
   }
 }
 
@@ -584,6 +590,16 @@ pre[data-label-file]::after {
   gap: 0.3em;
   span {
     @extend .text-sub-section;
+  }
+}
+
+@keyframes slideaway {
+  from {
+    display: block;
+  }
+  to {
+    // transform: translateY(40px);
+    opacity: 0;
   }
 }
 
