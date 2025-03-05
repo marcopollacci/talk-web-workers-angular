@@ -13,7 +13,7 @@
   "git.smartCommitChanges": "tracked",
   "gitlens.views.remotes.branches.layout": "tree",
   "eslint.lintTask.enable": true,
-  "conventionalCommits.scopes": ["main", "intro", "web-worker-intro"],
+  "conventionalCommits.scopes": ["main", "intro", "web-worker-intro", "cover"],
   "files.eol": "\n",
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

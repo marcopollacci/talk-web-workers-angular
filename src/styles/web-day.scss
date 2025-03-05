@@ -1,7 +1,8 @@
 @use 'core/mixins' as mixins;
 
 p-deck {
-  background: linear-gradient(104deg, #03356e, #010f33);
+  background: url('/img/webday/background.png');
+  background-size: cover;
 }
 
 p-slide {
