@@ -93,3 +93,51 @@
     <p>MessagePort API: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort : similar to postMessage but more powerful and flexible</p>
   </p-notes>
 </p-slide>
+<p-slide>
+  <h3>🤝🏻 <span class="main-gradient">Shared Worker - Practical Use Cases</span></h3>
+  <ul style="--web-day-ul-space: 0.1em" class="space mid-dimension">
+    <li>🗣️ Cross-tab communication through the <span class="main-sub-gradient">MessagePort API</span></li>
+    <p-fragment><li>🗃️ Shared Cache or Data Storage</li></p-fragment>
+    <p-fragment><li>👥 Session Management</li></p-fragment>
+  </ul>
+</p-slide>
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="shared-worker.js">
+ <code class="language-javascript mid-dimension"> 
+    const clients = [];
+    
+    self.onconnect = (event) => {
+      const [port] = event.ports;
+      clients.push(port);
+      port.postMessage("Worker connected");
+      port.onmessage = (e) => {
+        clients.forEach((client) =>
+          client.postMessage(
+            `New client connected: ${clients.length} with message: " ${e.data}"`
+          )
+        );
+      };
+    };  
+</code>
+</pre>
+</p-slide>
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line language-javascript" data-label-file="main.js">
+    <code class="language-javascript">
+    const sharedWorker = new SharedWorker("shared-worker.js");
+    sharedWorker.port.start();
+
+    sharedWorker.port.onmessage = (e) => {
+      console.log("Notification:", e.data);
+    };
+
+    sharedWorker.port.postMessage("Hello from Tab 1");</code></p-fragment>
+  </pre>
+  <p-fragment
+  ><span
+    style="--circle-sketch-height: 1.8em;position: absolute;inset-block-end: 8.3em;width: 5em;inset-inline-start: 5.9em;z-index: 1"
+    class="circle-sketch-highlight"></span
+></p-fragment>
+</p-slide>
