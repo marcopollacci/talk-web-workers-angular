@@ -1,0 +1,94 @@
+<p-slide>
+  <h3><span class="main-gradient">Let's go further</span> ᯓ🏃🏻‍♀️‍➡️</h3>
+</p-slide>
+<p-slide>
+  <code style="width: fit-content" class="language-javascript">self.onmessage = (event) => {};</code>
+</p-slide>
+<p-slide>
+  <code style="width: fit-content" class="language-javascript mid-dimension">self.onmessage = (event) => {};</code>
+  <ul class="grid-two-columns">
+    <p-fragment><li>📍 data</li></p-fragment>
+    <p-fragment><li>📍 origin</li></p-fragment>
+    <p-fragment><li>📍 source</li></p-fragment>
+    <p-fragment><li>📍 lastEventID</li></p-fragment>
+    <p-fragment><li>📍 ports</li></p-fragment>
+  </ul>
+  <p-notes>
+    <p><b>-->all of these properties are read-only<--</b></p>
+    <p>data: The data sent from the main thread to the web worker</p>
+    <p>origin: The origin of the main thread</p>
+    <p>source: The source of the web worker</p>
+    <p>lastEventId: The last event uniqueID</p>
+    <p>ports: An array of ports associated with the web worker</p>
+  </p-notes>
+</p-slide>
+<p-slide>
+  <code style="width: fit-content" class="language-javascript">postMessage(message, transfer)</code>
+</p-slide>
+<p-slide class="center">
+  <code style="width: fit-content" class="language-javascript mid-dimension">postMessage(message, transfer)</code>
+  <div class="flex two-columns-divided-vertically" style="margin-block-start: 1em">
+    <div>
+      <p>💬 <span class="main-sub-gradient">message</span></p>
+      <p-fragment><p>Can be any JavaScript object</p></p-fragment>
+      <p-fragment><p>required</p></p-fragment>
+    </div>
+    <div>
+      <p>🚚 <span class="main-gradient">transfer</span></p>
+      <p-fragment><p>List of transferable objects</p></p-fragment>
+      <p-fragment><p>optional</p></p-fragment>
+    </div>
+  </div>
+  <p-notes>
+    <p>
+      By default, when you use postMessage(message), the message is copied into the Worker's context (or the main thread) by structured cloning mechanism. But if you want to
+      improve performance, you can transfer specific types of data instead of copying them
+    </p>
+    <ul>
+      <li>ArrayBuffer</li>
+      <li>MessagePort</li>
+      <li>ImageBitmap</li>
+      <li>OffscreenCanvas</li>
+      <li>ReadableStream, WritableStream, TransformStream</li>
+    </ul>
+  </p-notes>
+</p-slide>
+<p-slide>
+  <code style="width: fit-content" class="language-javascript">worker.onerror = (event) => {};</code>
+</p-slide>
+<p-slide>
+  <code style="width: fit-content" class="language-javascript mid-dimension">worker.onerror = (event) => {};</code>
+  <ul class="space" style="margin-block-start: 0.7em">
+    <p-fragment><li>⛔ ErrorEvent</li></p-fragment>
+    <p-fragment
+      ><li>
+        💬 Optional string on <span class="main-sub-gradient">message</span> properties
+        <pre style="border-radius: 0.5em; box-shadow: inset 0 0 0.09em rgba(0, 0, 0, 0.25)"><code class="language-javascript mid-dimension">worker.onerror = (event) => { 
+  console.log(event.message);
+};</code></pre>
+      </li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide>
+  <h2>🤝🏻 <span class="main-gradient">Shared Worker</span></h2>
+  <p-notes>
+    Dedicated Workers are the most common: They are created from a single page with new Worker(). Each instance is independent (if you open two tabs of the same app, you will have
+    two distinct Web Workers). Perfect for operations tied only to the current page (e.g., file parsing or heavy calculations).
+  </p-notes>
+</p-slide>
+<p-slide>
+  <h3>🤝🏻 <span class="main-gradient">Shared Worker</span></h3>
+  <ul style="--web-day-ul-space: 0.2em" class="space mid-dimension">
+    <li>🌍 <span class="main-sub-gradient">Can be shared</span> across multiple tabs of the same origin</li>
+    <p-fragment
+      ><li>😎 <span class="main-sub-gradient">Keep alive</span> until all tabs are closed (even if the page is reloaded)</li></p-fragment
+    >
+    <p-fragment
+      ><li>💬 Communicate through the <span class="main-sub-gradient">MessagePort API</span></li></p-fragment
+    >
+  </ul>
+  <p-notes>
+    <p>MessagePort API: https://developer.mozilla.org/en-US/docs/Web/API/MessagePort : similar to postMessage but more powerful and flexible</p>
+  </p-notes>
+</p-slide>

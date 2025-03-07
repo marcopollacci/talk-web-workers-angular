@@ -13,3 +13,10 @@ ul {
     }
   }
 }
+
+ul.space {
+  --web-day-ul-space: 0.4em;
+  li {
+    padding-block-end: var(--web-day-ul-space);
+  }
+}
