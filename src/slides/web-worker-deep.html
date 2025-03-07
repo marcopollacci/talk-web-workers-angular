@@ -121,6 +121,11 @@
     };  
 </code>
 </pre>
+  <p-fragment
+    ><span
+      style="--circle-sketch-height: 1.4em; position: absolute; inset-block-end: 8.3em; width: 8em; inset-inline-start: 1.9em; z-index: 1"
+      class="circle-sketch-highlight"></span
+  ></p-fragment>
 </p-slide>
 <p-slide>
   <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
@@ -133,11 +138,33 @@
       console.log("Notification:", e.data);
     };
 
-    sharedWorker.port.postMessage("Hello from Tab 1");</code></p-fragment>
+    sharedWorker.port.postMessage("Hello from Tab 1");</code>
   </pre>
   <p-fragment
-  ><span
-    style="--circle-sketch-height: 1.8em;position: absolute;inset-block-end: 8.3em;width: 5em;inset-inline-start: 5.9em;z-index: 1"
-    class="circle-sketch-highlight"></span
-></p-fragment>
+    ><span
+      style="--circle-sketch-height: 1.8em; position: absolute; inset-block-end: 8.3em; width: 5em; inset-inline-start: 5.9em; z-index: 1"
+      class="circle-sketch-highlight"></span
+  ></p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line language-javascript" data-label-file="main.js">
+    <code class="language-javascript">
+  self.onconnect = (event) => {
+    // ...other stuff
+    port.onclose = () => {
+      clients.splice(clients.indexOf(port), 1);
+      clients.forEach((client) =>
+        client.postMessage(
+          `Client disconnected. Total clients: ${clients.length}`
+        )
+      );
+    };
+  }
+    </code>
+    </pre>
+  <p-notes>
+    <p>When the client disconnects (closing the tab or window), the onclose event is triggered.</p>
+    <p>The worker removes the client from the list and broadcasts a "Client disconnected" message to all remaining clients.</p>
+  </p-notes>
 </p-slide>
