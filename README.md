@@ -1,5 +1,7 @@
 # Web Workers in Angular: Multithreading without headache
 
+![wakatime](https://wakatime.com/badge/user/2729ac0c-0ebb-4599-b424-3a6648627bff/project/5eff7b3f-f4e5-4094-b0b9-c5b8dc9e1255.svg)
+
 Slides for talk about Web Workers in Angular
 
 Originally conceived for [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day-2025) (in italian), Milan, 2025-03-31
