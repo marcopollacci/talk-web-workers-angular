@@ -76,9 +76,24 @@
   <h1 class="main-gradient">Let's craft some amazing code!</h1>
   <p-fragment><img src="img/omg.gif" alt="omg" class="alter-image-size" style="--image-start-size: 6em" /></p-fragment>
 </p-slide>
-<p-slide follow-fragments autoplay timing="100">
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
   <pre class="small-line" data-label-file="worker-test.worker.ts">
-    <p-fragment></p-fragment>
+    <code class="language-javascript">
+      addEventListener('message', ({ data }) => {
+        heavyTask();
+        postMessage(`done "${data}" task`);
+      });
+    </code>
+  </pre>
+  <p-fragment
+    ><span style="--circle-sketch-height: 1.3em; position: absolute; inset-block-end: 6.9em; width: 6em; inset-inline-start: 3em; z-index: 1" class="circle-sketch-highlight"></span
+  ></p-fragment>
+</p-slide>
+<p-slide follow-fragments autoplay timing="100">
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <p-fragment></p-fragment>
+  <pre class="small-line" data-label-file="worker-test.worker.ts">
     <code class="language-javascript">
       //...
       export class WorkerTestService {
@@ -104,10 +119,25 @@
             this.#worker.postMessage(data);
           });
         }
-      }
-    </code></p-fragment>
+      }</code></p-fragment>
     </pre>
   <p-fragment no-autoplay
-    ><span style="--circle-sketch-height: 2.3em; position: absolute; inset-block-end: 8.7em; width: 8em; inset-inline-start: 5em; z-index: 1" class="circle-sketch-highlight"></span
+    ><span style="--circle-sketch-height: 2.3em; position: absolute; inset-block-end: 8em; width: 8em; inset-inline-start: 5em; z-index: 1" class="circle-sketch-highlight"></span
   ></p-fragment>
+</p-slide>
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="home.component.ts">
+    <code class="language-javascript">
+      // ...
+      export class HomeComponent {
+        readonly #workerService = inject(WorkerTestService);
+        
+        startHeavyWorkInWorker() {
+          this.#workerService
+            .doHeavyWork('daje')
+            .subscribe((data) => console.log(data)); // done "daje" task
+        }
+      }</code>
+  </pre>
 </p-slide>
