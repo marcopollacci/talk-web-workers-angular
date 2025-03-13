@@ -57,3 +57,57 @@
       }</code></p-fragment>
     </pre>
 </p-slide>
+<p-slide>
+  <h3 style="margin-block-end: 0.9em">⚙️ <span class="main-sub-gradient">Angular CLI</span></h3>
+  <ul class="space" style="--web-day-ul-space: 0.2em; font-weight: 100">
+    <li>🆕 <span class="main-gradient">Create new file</span> for us</li>
+    <p-fragment
+      ><li>🆕 Create new file <span class="main-gradient">tsconfig.worker.json</span> <i>(only fist time)</i></li></p-fragment
+    >
+    <p-fragment
+      ><li>🔄 Update <span class="main-gradient">angular.json</span> <i>(only fist time)</i></li></p-fragment
+    >
+    <p-fragment
+      ><li>🔄 <span class="main-gradient">Update</span> class file for us if web worker has the same name</li></p-fragment
+    >
+  </ul>
+</p-slide>
+<p-slide autoplay timing="600" class="center">
+  <h1 class="main-gradient">Let's craft some amazing code!</h1>
+  <p-fragment><img src="img/omg.gif" alt="omg" class="alter-image-size" style="--image-start-size: 6em" /></p-fragment>
+</p-slide>
+<p-slide follow-fragments autoplay timing="100">
+  <pre class="small-line" data-label-file="worker-test.worker.ts">
+    <p-fragment></p-fragment>
+    <code class="language-javascript">
+      //...
+      export class WorkerTestService {
+        #worker!: Worker;
+        
+        constructor() {
+          this.createWorker();
+        }
+      
+        createWorker() {
+          this.#worker = new Worker(
+            new URL('./worker-test.worker.ts', import.meta.url)
+          );
+        }
+      </code>
+      <p-fragment no-autoplay><code class="language-javascript">doHeavyWork(data: string): Observable&lt;string> {
+          return new Observable((observer) => {
+            this.#worker.onmessage = ({ data }: MessageEvent&lt;string>) => {
+              observer.next(data);
+              observer.complete();
+            };
+            this.#worker.onerror = (error) => observer.error(error);
+            this.#worker.postMessage(data);
+          });
+        }
+      }
+    </code></p-fragment>
+    </pre>
+  <p-fragment no-autoplay
+    ><span style="--circle-sketch-height: 2.3em; position: absolute; inset-block-end: 8.7em; width: 8em; inset-inline-start: 5em; z-index: 1" class="circle-sketch-highlight"></span
+  ></p-fragment>
+</p-slide>
