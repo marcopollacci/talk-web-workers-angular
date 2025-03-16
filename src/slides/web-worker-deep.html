@@ -6,20 +6,25 @@
 </p-slide>
 <p-slide>
   <code style="width: fit-content" class="language-javascript mid-dimension">self.onmessage = (event) => {};</code>
-  <ul style="margin-block-start: 0.5em" class="grid-two-columns">
+  <ul style="margin-block-start: 0.5em">
     <p-fragment><li>📌 data</li></p-fragment>
     <p-fragment><li>📌 origin</li></p-fragment>
     <p-fragment><li>📌 source</li></p-fragment>
-    <p-fragment><li>📌 lastEventID</li></p-fragment>
     <p-fragment><li>📌 ports</li></p-fragment>
   </ul>
   <p-notes>
     <p><b>-->all of these properties are read-only<--</b></p>
-    <p>data: The data sent from the main thread to the web worker</p>
-    <p>origin: The origin of the main thread</p>
-    <p>source: The source of the web worker</p>
-    <p>lastEventId: The last event uniqueID</p>
-    <p>ports: An array of ports associated with the web worker</p>
+    <ul style="font-size: 0.8em">
+      <li style="margin-block-end: 0.5em">data: The data sent from the main thread to the web worker</li>
+      <li style="margin-block-end: 0.5em">origin: Indicates the origin of the message, i.e., the URL of the context that sent the message</li>
+      <li style="margin-block-end: 0.5em">
+        source: Represents the context that sent the message. In the case of Web Workers, this property is usually null because messages come from the main thread or other Workers,
+        not from windows or iframes
+      </li>
+      <li style="margin-block-end: 0.5em">
+        ports: An array of MessagePort objects associated with the message. MessagePort are used for advanced two-way communication between threads
+      </li>
+    </ul>
   </p-notes>
 </p-slide>
 <p-slide>
@@ -30,13 +35,13 @@
   <div class="flex two-columns-divided-vertically" style="margin-block-start: 1em">
     <div>
       <p>💬 <span class="main-sub-gradient">message</span></p>
-      <p-fragment><p>Can be any JavaScript object</p></p-fragment>
-      <p-fragment><p>required</p></p-fragment>
+      <p-fragment><p>🥳 Can be any JavaScript object</p></p-fragment>
+      <p-fragment><p>🚩 required</p></p-fragment>
     </div>
     <div>
       <p>🚚 <span class="main-gradient">transfer</span></p>
-      <p-fragment><p>List of transferable objects</p></p-fragment>
-      <p-fragment><p>optional</p></p-fragment>
+      <p-fragment><p>🚌 Only transferable objects</p></p-fragment>
+      <p-fragment><p>😶‍🌫️ optional</p></p-fragment>
     </div>
   </div>
   <p-notes>
@@ -44,9 +49,8 @@
       By default, when you use postMessage(message), the message is copied into the Worker's context (or the main thread) by structured cloning mechanism. But if you want to
       improve performance, you can transfer specific types of data instead of copying them
     </p>
-    <ul>
+    <ul style="font-size: 0.8em">
       <li>ArrayBuffer</li>
-      <li>MessagePort</li>
       <li>ImageBitmap</li>
       <li>OffscreenCanvas</li>
       <li>ReadableStream, WritableStream, TransformStream</li>
