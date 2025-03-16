@@ -202,22 +202,13 @@
       </li></p-fragment
     >
     <p-fragment
-      ><li>❌ <span class="main-sub-gradient">Communication overhead</span></li></p-fragment
+      ><li>❌ <span class="main-sub-gradient">No access to storage APIs</span></li></p-fragment
     >
   </ul>
   <p-notes>
-    <p>Fully isolated: a web worker cannot access the DOM and main thread, but can only send and receive messages</p>
-    <p>Not only Angular: a web worker can be used in any JavaScript environment</p>
-  </p-notes>
-  <p-notes>
-    <ul>
-      <li>❌ No access to the DOM - Web Workers cannot directly manipulate the document (e.g., document.getElementById() won't work).</li>
-      <li>❌ No access to global variables like window, document, or parent - They run in a separate context.</li>
-      <li>❌ No synchronous APIs like alert(), confirm(), or prompt() - Since Web Workers are designed for background tasks, blocking operations are not allowed.</li>
-      <li>❌ Limited access to browser APIs - Some APIs like localStorage, sessionStorage, and cookies are not accessible. IndexedDB is only partially available.</li>
-      <li>❌ Communication overhead - Data exchange with the main thread happens asynchronously via postMessage(), which can introduce complexity and performance overhead.</li>
+    <ul style="font-size: 0.8em">
+      <li>❌ Some APIs like localStorage, sessionStorage, and cookies are not accessible. IndexedDB is only partially available.</li>
       <li>❌ No synchronous import of ES modules - Modules must be imported explicitly and asynchronously (importScripts() works only in classic workers, not module workers).</li>
-      <li>❌ Memory and performance impact - Creating too many workers can degrade performance, especially on low-end devices.</li>
       <li>
         ❌ Restricted access to certain JavaScript APIs - Web Workers cannot use WebRTC, CanvasRenderingContext2D (except OffscreenCanvas), some security-related APIs, and other
         browser-specific features.

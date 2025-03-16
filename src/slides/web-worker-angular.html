@@ -18,6 +18,27 @@
   </p-notes>
 </p-slide>
 <p-slide>
+  <h3 style="margin-block-end: 0.9em">⚙️ <span class="main-sub-gradient">Angular CLI</span></h3>
+  <ul class="space" style="--web-day-ul-space: 0.2em; font-weight: 100">
+    <li>🆕 <span class="main-gradient">Create new file</span></li>
+    <p-fragment
+      ><li>🆕 Create new file <span class="main-gradient">tsconfig.worker.json</span> <i>(only first time)</i></li></p-fragment
+    >
+    <p-fragment
+      ><li>🔄 Update <span class="main-gradient">angular.json</span> <i>(only first time)</i></li></p-fragment
+    >
+    <p-fragment
+      ><li>🔄 <span class="main-gradient">Update</span> class file only if web worker has the same name</li></p-fragment
+    >
+  </ul>
+  <p-notes>
+    <p>
+      last point example:<br />
+      <u>worker-test</u>.service.ts --> <u>worker-test</u>.worker.ts
+    </p>
+  </p-notes>
+</p-slide>
+<p-slide>
   <pre class="small-line" data-label-file="worker-test.worker.ts">
     <code class="language-javascript">
       /// &lt;reference lib="webworker" />
@@ -56,21 +77,6 @@
         // You should add a fallback so that your program still executes correctly.
       }</code></p-fragment>
     </pre>
-</p-slide>
-<p-slide>
-  <h3 style="margin-block-end: 0.9em">⚙️ <span class="main-sub-gradient">Angular CLI</span></h3>
-  <ul class="space" style="--web-day-ul-space: 0.2em; font-weight: 100">
-    <li>🆕 <span class="main-gradient">Create new file</span> for us</li>
-    <p-fragment
-      ><li>🆕 Create new file <span class="main-gradient">tsconfig.worker.json</span> <i>(only fist time)</i></li></p-fragment
-    >
-    <p-fragment
-      ><li>🔄 Update <span class="main-gradient">angular.json</span> <i>(only fist time)</i></li></p-fragment
-    >
-    <p-fragment
-      ><li>🔄 <span class="main-gradient">Update</span> class file for us if web worker has the same name</li></p-fragment
-    >
-  </ul>
 </p-slide>
 <p-slide autoplay timing="600" class="center">
   <h1 class="main-gradient">Let's see some example code!</h1>
