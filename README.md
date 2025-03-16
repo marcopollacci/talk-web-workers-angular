@@ -8,6 +8,10 @@ Originally conceived for [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day
 
 Built on top of [P-Slides](https://github.com/MaxArt2501/p-slides)!
 
+# Url Slide
+
+- [31/03/2025 - Web Day 2025](https://talk-web-workers-angular.pages.dev/web-day-2025/)
+
 ## Building
 
 Node.js >= 10.x is required.
