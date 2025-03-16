@@ -43,9 +43,12 @@ export const buildSlides = (isBuildMode = true) => {
       }
     });
     if (isBuildMode) {
-      const regex =
-        /<button aria-label="Toggle speaker mode \(Alt-M\)" class="toggle-mode" title="Toggle speaker mode" type="button">\s*<svg viewBox="0 0 1 1">\s*<path d="M\.05 \.5h\.6v-\.45h-\.6v\.9h\.6v-\.45M\.75 \.05h\.25M\.75 \.2h\.25M\.75 \.35h\.25" fill="none" stroke="currentColor" stroke-width="0\.1" \/>\s*<\/svg>\s*<\/button>/g;
-      parsed = parsed.replace(regex, '');
+      [
+        /<p-notes\b[^>]*>(.*?)<\/p-notes>/gs,
+        /<button aria-label="Toggle speaker mode \(Alt-M\)" class="toggle-mode" title="Toggle speaker mode" type="button">\s*<svg viewBox="0 0 1 1">\s*<path d="M\.05 \.5h\.6v-\.45h-\.6v\.9h\.6v-\.45M\.75 \.05h\.25M\.75 \.2h\.25M\.75 \.35h\.25" fill="none" stroke="currentColor" stroke-width="0\.1" \/>\s*<\/svg>\s*<\/button>/g
+      ].forEach(regex => {
+        parsed = parsed.replaceAll(regex, '');
+      });
     }
     safeWrite(join('public', relative(commonPath, filename)), parsed);
   }
