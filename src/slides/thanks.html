@@ -15,6 +15,19 @@
   </p-note>
   <p-note><a href="https://github.com/marcopollacci/web-worker-angular-example">https://github.com/marcopollacci/web-worker-angular-example</a></p-note>
 </p-slide>
+<p-slide>
+  <h5 style="margin-block-end: 1em" class="center"><span class="main-gradient">Questions?</span> 🤔</h5>
+  <pre class="small-line" data-label-file="questions.js">
+    <code class="language-javascript"> 
+      self.onmessage = async (event) => {
+        const question = event.data;
+        
+        const answer = await answer(question);
+        self.postMessage(`The answer is: ${answer}`);
+      };
+    </code>
+   </pre>
+</p-slide>
 <p-slide blob-slide class="two-columns">
   <gfy-blob
     clearcoatroughness="0.4"
