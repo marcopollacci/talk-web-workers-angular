@@ -21,6 +21,50 @@ ul.space {
   }
 }
 
-.mamma {
-  display: none;
+.hand-drawing {
+  @include mixins.common-hand-drawing;
+  p-fragment {
+    @include mixins.common-hand-drawing;
+  }
+  --color-border: #000000;
+  span {
+    &[box] {
+      padding: 0.5em;
+      background: transparent;
+      outline: none;
+      border: 2px solid var(--color-border);
+      border-radius: 255px 15px 225px 15px / 15px 225px 15px 255px;
+    }
+    &[arrow] {
+      font-size: 2.5em;
+      &[left]:before {
+        content: '\27F5';
+      }
+      &[right]:before {
+        content: '\27F6';
+      }
+      &[up]:before {
+        content: '\2191';
+      }
+      &[down]:before {
+        content: '\2193';
+      }
+      &[up-down]:before {
+        content: '\21F5';
+      }
+    }
+  }
+}
+
+.property-hand-drawing-horizontal {
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.hand-drawing-horizontal {
+  @extend .hand-drawing;
+  @extend .property-hand-drawing-horizontal;
+  p-fragment {
+    @extend .property-hand-drawing-horizontal;
+  }
 }

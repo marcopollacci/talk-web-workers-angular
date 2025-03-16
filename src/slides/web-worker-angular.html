@@ -130,6 +130,11 @@
   <p-fragment no-autoplay
     ><span style="--circle-sketch-height: 2.3em; position: absolute; inset-block-end: 8em; width: 8em; inset-inline-start: 5em; z-index: 1" class="circle-sketch-highlight"></span
   ></p-fragment>
+  <p-fragment no-autoplay
+    ><span
+      style="--circle-sketch-height: 2.3em; position: absolute; inset-block-end: 6.2em; width: 8em; inset-inline-start: 15em; z-index: 1"
+      class="circle-sketch-highlight"></span
+  ></p-fragment>
 </p-slide>
 <p-slide>
   <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
@@ -146,4 +151,97 @@
         }
       }</code>
   </pre>
+</p-slide>
+<p-slide class="center">
+  <h2 style="margin-block-end: 0.5em"><span class="main-sub-gradient">Web Worker Pool</span></h2>
+  <span style="font-size: 1.4em">📚</span>
+</p-slide>
+<p-slide>
+  <h3>📚 <span class="main-sub-gradient">Web Worker Pool</span></h3>
+  <ul class="space" style="--web-day-ul-space: 0.2em; font-weight: 100">
+    <li>♻️ <span class="main-gradient">Reduced Overhead</span></li>
+    <li>💪 <span class="main-gradient">Efficient Resource Management</span></li>
+    <li>🎢 <span class="main-gradient">Scalability</span></li>
+  </ul>
+  <p-notes>
+    <span style="font-size: 0.8em"
+      >A Web Worker Pool is a technique where you create and manage a group (or "pool") of pre-initialized Web Workers that are ready to handle tasks on demand. Instead of creating
+      and destroying Web Workers dynamically (which is resource-intensive), the pool maintains a set of workers that can be reused, improving performance and efficiency.</span
+    >
+    <ul style="font-size: 0.8em">
+      <li>Reduced Overhead: Creating a Web Worker is expensive in terms of time and resources. A pool avoids repeatedly creating and destroying workers.</li>
+      <li>Efficient Resource Management: Workers are reused, preventing memory leaks and excessive resource consumption.</li>
+      <li>Scalability: You can control the number of active workers, ensuring the application adapts to</li>
+      the device's capabilities.
+    </ul>
+  </p-notes>
+</p-slide>
+<p-slide class="center">
+  <h3 style="margin-block-end: 0.5em"><span class="main-sub-gradient">How Does a Web Worker Pool Work?</span></h3>
+  <span style="font-size: 1.4em">( ꩜ ᯅ ꩜;)</span>
+</p-slide>
+<p-slide>
+  <h4><span class="main-sub-gradient">Pool worker loop</span> 🔁</h4>
+  <div class="hand-drawing-horizontal center">
+    <p-fragment><span box>Pool Initialization</span></p-fragment>
+    <p-fragment><span arrow right></span> <span box>Task Assignment</span></p-fragment>
+    <p-fragment><span arrow right></span> <span box>Worker Release</span></p-fragment>
+  </div>
+</p-slide>
+<p-slide follow-fragments>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="worker-pool.worker.ts">
+    <code class="mid-dimension language-javascript">
+  const POOL_SIZE = 4;
+  export class WorkerPoolService {
+    #workers: Worker[] = [];
+
+    constructor() {
+      this.createPoolWorkers();
+    }
+    </code><p-fragment><code class="mid-dimension language-javascript">createPoolWorkers() {
+        for (let i = 0; i < POOL_SIZE; i++) {
+          const worker = new Worker(
+            new URL('./worker-test.worker.ts', import.meta.url)
+          );
+          this.#workers.push(worker);
+        }
+    }</code></p-fragment><p-fragment><code class="mid-dimension language-javascript">
+    releaseWorker(worker: Worker) {
+      this.#workers.push(worker);
+    }
+  }</code></p-fragment>
+    </pre>
+  <p-fragment
+    ><span style="--circle-sketch-height: 1.3em; position: absolute; inset-block-end: 8.5em; width: 5em; inset-inline-start: 6em; z-index: 1" class="circle-sketch-highlight"></span
+  ></p-fragment>
+</p-slide>
+<p-slide follow-fragments>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="worker-pool.worker.ts">
+    <code class="mid-dimension language-javascript">
+    export class WorkerPoolService {
+      //...
+      getWorker(data: string): Observable&lt;string> | null {
+        const worker = this.#workers.pop();
+        if (!worker) return null;
+        return new Observable((observer) => {
+          worker.onmessage = ({ data }: MessageEvent&lt;string>) => {
+            observer.next(data);
+            observer.complete();
+            this.releaseWorker(worker);
+          };
+          worker.onerror = (error) => observer.error(error);
+          worker.postMessage(data);
+        });
+      }
+    }</code></pre>
+  <p-fragment
+    ><span style="--circle-sketch-height: 1.3em; position: absolute; inset-block-end: 8.2em; width: 5em; inset-inline-start: 6em; z-index: 1" class="circle-sketch-highlight"></span
+  ></p-fragment>
+  <p-fragment
+    ><span
+      style="--circle-sketch-height: 1.3em; position: absolute; inset-block-end: 4.6em; width: 7em; inset-inline-start: 3.5em; z-index: 1"
+      class="circle-sketch-highlight"></span
+  ></p-fragment>
 </p-slide>
