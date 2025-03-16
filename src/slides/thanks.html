@@ -20,7 +20,7 @@
   <pre class="small-line" data-label-file="questions.js">
     <code class="language-javascript"> 
       self.onmessage = async (event) => {
-        const question = event.data;
+        const { data: question } = event;
         
         const answer = await answer(question);
         self.postMessage(`The answer is: ${answer}`);
