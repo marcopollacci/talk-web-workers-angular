@@ -37,7 +37,7 @@ export const buildSlides = (isBuildMode = true) => {
     const html = readFileSync(filename, 'utf-8');
     const match = html.match(/<meta\s+[^>]*name=["']date-speech["'][^>]*content=["']([^"']+)["']/);
 
-    if (match) {
+    if (match && isBuildMode) {
       const today = new Date();
       const dateSpeech = new Date(match[1]);
       canBuildAll = dateSpeech.getTime() <= today.getTime();
@@ -45,7 +45,7 @@ export const buildSlides = (isBuildMode = true) => {
 
     let counter = 0;
     let parsed = html.replace(/\bslide:(.+?)\s/g, (m, source) => {
-      if (!canBuildAll && counter > 0) return '';
+      if (isBuildMode && !canBuildAll && counter > 0) return '';
       counter++;
       try {
         const slide = readFileSync(`src/slides/${source}.html`, 'utf-8');
