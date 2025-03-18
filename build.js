@@ -35,7 +35,7 @@ export const buildSlides = (isBuildMode = true) => {
     let canBuildAll = true;
 
     const html = readFileSync(filename, 'utf-8');
-    const match = html.match(/<meta\s+[^>]*name=["']date-speech["'][^>]*content=["']([^"']+)["']/);
+    const match = html.match(/<meta\s+[^>]*name=["']speech-online["'][^>]*content=["']([^"']+)["']/);
 
     if (match && isBuildMode) {
       const today = new Date();
