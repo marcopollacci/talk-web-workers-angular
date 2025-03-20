@@ -40,7 +40,7 @@ export const buildSlides = (isBuildMode = true) => {
     console.log('🚀 ~ buildSlides ~ parentFolder:', parentFolder);
     const envToCheck = process.env[`SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`];
 
-    console.log('🚀 ~ buildSlides ~ envToCheck:', `SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`, envToCheck);
+    console.log('🚀 ~ buildSlides ~ envToCheck:', process.env, `SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`, envToCheck);
     if (envToCheck && isBuildMode) {
       const today = new Date();
       const dateSpeech = new Date(envToCheck);
