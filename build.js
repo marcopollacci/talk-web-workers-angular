@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { sync } from 'glob';
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join, relative, sep } from 'node:path';
@@ -33,13 +34,14 @@ export const buildSlides = (isBuildMode = true) => {
   const commonPath = getCommonPath(files);
   for (const filename of files) {
     let canBuildAll = true;
-
     const html = readFileSync(filename, 'utf-8');
-    const match = html.match(/<meta\s+[^>]*name=["']speech-online["'][^>]*content=["']([^"']+)["']/);
 
-    if (match && isBuildMode) {
+    const parentFolder = filename.match(/([^\/]+)\/[^\/]+$/);
+    const envToCheck = process.env[`SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`];
+
+    if (envToCheck && isBuildMode) {
       const today = new Date();
-      const dateSpeech = new Date(match[1]);
+      const dateSpeech = new Date(envToCheck);
       canBuildAll = dateSpeech.getTime() <= today.getTime();
     }
 
