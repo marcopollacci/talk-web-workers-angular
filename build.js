@@ -37,10 +37,8 @@ export const buildSlides = (isBuildMode = true) => {
     const html = readFileSync(filename, 'utf-8');
 
     const parentFolder = filename.match(/([^\/]+)\/[^\/]+$/);
-    console.log('🚀 ~ buildSlides ~ parentFolder:', parentFolder);
-    const envToCheck = process.env[`SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`];
+    const envToCheck = process.env[`SPEECH_ONLINE_${parentFolder[1].toUpperCase().replaceAll('-', '')}`];
 
-    console.log('🚀 ~ buildSlides ~ envToCheck:', process.env, `SPEECH_ONLINE_${parentFolder[1].toUpperCase()}`, envToCheck);
     if (envToCheck && isBuildMode) {
       const today = new Date();
       const dateSpeech = new Date(envToCheck);
