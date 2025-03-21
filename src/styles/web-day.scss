@@ -68,3 +68,15 @@ ul.space {
     @extend .property-hand-drawing-horizontal;
   }
 }
+
+cite[loop] {
+  --cite-margin-block-start: 0.8em;
+  text-align: center;
+  font-style: normal;
+  color: #6f6d6d;
+  margin-block-start: var(--cite-margin-block-start);
+  font-size: 0.3em;
+  a:visited {
+    color: inherit;
+  }
+}
