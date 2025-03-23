@@ -223,10 +223,10 @@
           const worker = new Worker(
             new URL('./worker-test.worker.ts', import.meta.url)
           );
-          this.#workers.push(worker);
+          this.#increaseWorkerPool(worker);
         }
     }</code></p-fragment><p-fragment><code class="mid-dimension language-javascript">
-    releaseWorker(worker: Worker) {
+    #increaseWorkerPool(worker: Worker) {
       this.#workers.push(worker);
     }
   }</code></p-fragment>
@@ -248,7 +248,7 @@
           worker.onmessage = ({ data }: MessageEvent&lt;string>) => {
             observer.next(data);
             observer.complete();
-            this.releaseWorker(worker);
+            this.#increaseWorkerPool(worker);
           };
           worker.onerror = (error) => observer.error(error);
           worker.postMessage(data);
