@@ -34,7 +34,7 @@ export const buildSlides = (isBuildMode = true) => {
   const commonPath = getCommonPath(files);
   for (const filename of files) {
     let canBuildAll = true;
-    const html = readFileSync(filename, 'utf-8');
+    let html = readFileSync(filename, 'utf-8');
 
     const parentFolder = filename.match(/([^\/]+)\/[^\/]+$/);
     const envToCheck = process.env[`SPEECH_ONLINE_${parentFolder[1].toUpperCase().replaceAll('-', '')}`];
@@ -46,6 +46,9 @@ export const buildSlides = (isBuildMode = true) => {
     }
 
     let counter = 0;
+    if (!canBuildAll) {
+      html = html.replace('<body>', '<body coming-soon>');
+    }
     let parsed = html.replace(/\bslide:(.+?)\s/g, (m, source) => {
       if (isBuildMode && !canBuildAll && counter > 0) return '';
       counter++;

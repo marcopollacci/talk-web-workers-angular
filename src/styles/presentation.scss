@@ -400,6 +400,18 @@ pre {
   }
 }
 
+.coming-soon {
+  display: none;
+}
+
+body[coming-soon] .coming-soon {
+  display: initial;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes big-stroke {
   from {
     padding-right: 100%;
