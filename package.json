@@ -7,6 +7,7 @@
     "build": "node build.js",
     "clean": "rimraf public",
     "start:web-day-2025": "node serve.js web-day-2025",
+    "start:bologna-js-2025": "node serve.js bologna-js",
     "prettier": "prettier --write \"src/**/*.{html,scss,js}\""
   },
   "keywords": [

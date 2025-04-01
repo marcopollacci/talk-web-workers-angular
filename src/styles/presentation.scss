@@ -201,11 +201,11 @@ pre {
 }
 
 .bottom-first-page {
-  left: 50%;
+  inset-inline-start: 50%;
   flex-direction: column;
   flex-wrap: nowrap;
   position: absolute;
-  bottom: 0;
+  inset-block-end: 0;
   font-size: 0.4em;
   transform: translate(-50%, -50%);
   color: rgb(93, 93, 93);
