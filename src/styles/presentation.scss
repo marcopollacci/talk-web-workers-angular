@@ -515,6 +515,7 @@ p-slide {
   }
   &[aria-hidden='false'] {
     gfy-blob {
+      filter: drop-shadow(0.25em 0.25em 0.1375em rgba(0, 0, 0, 0.18));
       display: block;
     }
   }
