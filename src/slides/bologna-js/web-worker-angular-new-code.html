@@ -1,0 +1,19 @@
+<p-slide>
+  <h4 style="margin-block-end: 0.5em" class="center">Let&#39;s Code 👨‍💻</h4>
+  <pre class="small-line" data-label-file="pool-worker.component.ts">
+    <code class="mid-dimension language-javascript">
+      export class PoolWorkerComponent {     
+        //...
+        startNewHeavyJob() {
+          const newWorker = this.#poolWorkerService.getWorker(crypto.randomUUID());
+          if (!newWorker) {
+            this.disableButton.set(true);
+            return;
+          }
+          newWorker.subscribe((data) => {
+            this.disableButton.set(false);
+            console.log(data);
+          });
+        }
+      }</code></pre>
+</p-slide>
