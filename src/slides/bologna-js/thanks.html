@@ -1,0 +1,65 @@
+<p-slide>
+  <img alt="thatsall" src="img/thatsall.gif" style="--image-start-size: 100%" class="alter-image-size" />
+</p-slide>
+<p-slide class="center">
+  <h2 style="margin-bottom: 0.3em">You can see this slide on</h2>
+  <p-note style="margin-bottom: 0.5em">
+    <img src="img/bolognajs/qrcode_bolognajs.png" alt="qrcode" class="alter-image-size" />
+  </p-note>
+  <p-note><a href="https://talk-web-workers-angular.pages.dev/bologna-js/">https://talk-web-workers-angular.pages.dev/bologna-js</a></p-note>
+</p-slide>
+<p-slide class="center">
+  <h2 style="margin-bottom: 0.3em">You can see the code on github</h2>
+  <p-note style="margin-bottom: 0.5em">
+    <img src="img/webday/qrcode_github.com.png" alt="qrcode" class="alter-image-size" />
+  </p-note>
+  <p-note><a href="https://github.com/marcopollacci/web-worker-angular-example">https://github.com/marcopollacci/web-worker-angular-example</a></p-note>
+</p-slide>
+<p-slide>
+  <h5 style="margin-block-end: 1em" class="center"><span class="main-gradient">Questions?</span> 🤔</h5>
+  <pre class="small-line" data-label-file="questions.js">
+    <code class="language-javascript"> 
+      self.onmessage = async (event) => {
+        const { data: question } = event;
+        
+        const answer = await answer(question);
+        self.postMessage(`The answer is: ${answer}`);
+      };
+    </code>
+   </pre>
+</p-slide>
+<p-slide blob-slide class="two-columns">
+  <gfy-blob
+    clearcoatroughness="0.4"
+    clearcoat="0.25"
+    color="#2a0b29"
+    envmap="img/envmap.jpg"
+    envmapintensity="0.95"
+    fixnormals=""
+    frequency="0.01"
+    metalness="0.64"
+    numberofwaves="1.47"
+    reflectivity="1"
+    roughness="0"
+    surfacepoleamount="1"
+    surfacedistort="3.2"
+    surfacefrequency="0.97"
+    surfacespeed="0.8">
+    <gfy-spotlight color="#c556c6" intensity="2.68" distance="14.47" angle="0.85" penumbra="0.45" decay="0.24" x="-4.47" y="2.4" z="0.53"></gfy-spotlight>
+    <gfy-spotlight color="#30ffe2" intensity="2.08" distance="8.73" angle="0.63" penumbra="1" decay="0" x="-1.6" y="-5.33" z="3.67"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="2.03" distance="0" angle="0.35" penumbra="1" decay="1" x="6.13" y="2.67" z="2.13"></gfy-spotlight>
+    <gfy-spotlight color="#ff4cfa" intensity="1.25" distance="7" angle="0.82" penumbra="1" decay="0.5" x="0.53" y="2.4" z="3.4"></gfy-spotlight>
+    <gfy-spotlight color="#ffffff" intensity="0.63" distance="7" angle="0.79" penumbra="1" decay="0.5" x="-3" y="-3" z="6.2"></gfy-spotlight>
+  </gfy-blob>
+  <p-note class="main-gradient my-data my-presentation">
+    <h5 class="main-gradient">Thank you again!</h5>
+    <img src="img/webday/me.png" class="my-face" alt="me" />
+    <span>Marco Pollacci</span>
+    <span>Senior Frontend Developer @GELLIFY</span>
+    <div></div>
+  </p-note>
+  <p-note class="main-gradient my-data my-presentation">
+    <h5>Leave some feedback</h5>
+    <img style="--image-start-size: 8.3em" class="alter-image-size" src="img/bolognajs/qrcode_feedback.png" alt="qr" />
+  </p-note>
+</p-slide>
