@@ -6,9 +6,9 @@ Slides for talk about Web Workers in Angular
 
 Originally conceived for [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day-2025) (in italian), Milan, 31/03/2025
 
-### More Talk:
+### More Sessions:
 
-- [BolognaJS]() - Bologna, 16/04/2025 <--- CHANGE ME
+- [BolognaJS](https://www.meetup.com/it-IT/bologna-js-meetup/events/307181216/) - Bologna, 16/04/2025
 
 Built on top of [P-Slides](https://github.com/MaxArt2501/p-slides)!
 
