@@ -1,7 +1,9 @@
 const target = document.getElementsByTagName('object')[0];
 
 target.addEventListener('load', () => {
-  const svg = target.getSVGDocument();
+  const svgDoc = target.contentDocument;
+  const style = document.createElement('style');
 
-  Array.from(svg.getElementsByTagName('path')).forEach(p => p.setAttribute('stroke', '#808080'));
+  style.textContent = 'path { stroke: #808080; }';
+  svgDoc.querySelector('svg').appendChild(style);
 });
