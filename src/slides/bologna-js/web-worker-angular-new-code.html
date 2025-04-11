@@ -4,8 +4,8 @@
     <code class="mid-dimension language-javascript">
       export class PoolWorkerComponent {     
         //...
-        startNewHeavyJob() {
-          const newWorker = this.#poolWorkerService.getWorker(crypto.randomUUID());
+        startNewHeavyJob(task: string) {
+          const newWorker = this.#poolWorkerService.getWorker(task);
           if (!newWorker) {
             this.disableButton.set(true);
             return;
