@@ -57,6 +57,12 @@
    // Starting point
    worker.postMessage("Hello Web Day!");</code></p-fragment>
   </pre>
+  <p-notes>
+    Web Worker in the browser is native—in the sense that: It is managed by the browser underlying engine (like V8 in Chrome, SpiderMonkey in Firefox, or JavaScriptCore in Safari).
+    The worker runs in its own OS-level thread, separate from the main UI thread. This allows it to perform operations concurrently without blocking the main thread. So, when you
+    create a new Worker(...), the browser spins up a separate thread using native system APIs under the hood. However, from the JavaScript developer’s perspective, Web Workers are
+    not threads you control directly—you just post messages back and forth using postMessage() and onmessage.
+  </p-notes>
 </p-slide>
 <p-slide>
   <h4 style="margin-block-end: 0.5em" class="center">◝(ᵔᗜᵔ)◜</h4>
