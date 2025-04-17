@@ -1,8 +1,10 @@
-# Web Workers in Angular: Multithreading without headache
+# Don’t Block the Main Thread: A Journey into Web Workers (with a Touch of Angular)
+
+### <em>Formerly --> Web Workers in Angular: Multithreading without headache</em>
 
 ![wakatime](https://wakatime.com/badge/user/2729ac0c-0ebb-4599-b424-3a6648627bff/project/5eff7b3f-f4e5-4094-b0b9-c5b8dc9e1255.svg)
 
-Slides for talk about Web Workers in Angular
+Slides for talk about Web Workers and Angular
 
 Originally conceived for [Web Day 2025](https://www.webdayconf.it/e/3584/Web-Day-2025) (in italian), Milan, 31/03/2025
 
